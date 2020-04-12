@@ -45,12 +45,22 @@ $documentContainer.innerHTML = `
   <iron-iconset-svg size="1000" id="vaadin-iconset-svg" name="vaadin">
     <svg xmlns="http://www.w3.org/2000/svg">
       <defs>
+        <g id="angle-double-right" viewBox="0 0 16 16">
+          <path d="M2 13h2l5-5-5-5h-2l5 5z"></path>
+          <path d="M7 13h2l5-5-5-5h-2l5 5z"></path>
+        </g>
+        <g id="check" viewBox="0 0 16 16">
+          <path d="M7.3 14.2l-7.1-5.2 1.7-2.4 4.8 3.5 6.6-8.5 2.3 1.8z"></path>
+        </g>
         <g id="check-circle" viewBox="0 0 16 16">
           <path d="M8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zM7.1 11.7l-4.2-4.1 1.4-1.4 2.7 2.7 5-4.9 1.4 1.4-6.3 6.3z"></path>
         </g>
         <g id="play-circle" viewBox="0 0 16 16">
           <path d="M8 1c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zM8 0c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8v0z"></path>
           <path d="M6 4v8l6-4z"></path>
+        </g>
+        <g id="slider" viewBox="0 0 16 16">
+          <path d="M16 6h-3.6c-0.7-1.2-2-2-3.4-2s-2.8 0.8-3.4 2h-5.6v4h5.6c0.7 1.2 2 2 3.4 2s2.8-0.8 3.4-2h3.6v-4zM1 9v-2h4.1c0 0.3-0.1 0.7-0.1 1s0.1 0.7 0.1 1h-4.1zM9 11c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3c0 1.7-1.3 3-3 3z"></path>
         </g>
       </defs>
     </svg>
