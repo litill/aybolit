@@ -23,7 +23,11 @@
     "@vaadin/vaadin-themable-mixin": "^1.5.2",
     "headroom.js": "^0.11.0",
     "lit-element": "^2.2.1",
-    "lit-html": "^1.1.2"
+    "lit-html": "^1.1.2",
+    "cross-env": "~7.0.2",
+    "laravel-mix": "^5.0.4",
+    "postcss-preset-env": "^6.7.0",
+    "imports-loader": "^0.8.0"
   },
   "@pika/pack": {
     "pipeline": [
@@ -47,6 +51,14 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "pika build"
+    "dist": "npm run prod",
+    "prod": "cross-env NODE_ENV=production ../../node_modules/webpack/bin/webpack.js --progress --hide-modules --config=../../node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "cross-env NODE_ENV=development ../../node_modules/webpack/bin/webpack.js --progress --hide-modules --config=../../node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "resolutions": {
+    "terser": "^4.6.11"
+  },
+  "devDependencies": {
+    "vue-template-compiler": "^2.6.11"
   }
 }
