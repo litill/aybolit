@@ -1,0 +1,20 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "../mixins";
+
+vaadin-dialog-overlay[theme~="cxl-vaadin-dialog-overlay-theme"] {
+  /**
+   * helper custom variable for animation
+   * as part backdrop / overlay has different animation-duration
+   * so using this variable to overcome that.
+   */
+  --cxl-vaadin-dialog-animation-duration: 1;
+  vaadin-button[theme~="pum-close"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999999;
+    min-width: auto;
+    margin: 0;
+    // height: var(--lumo-button-size);
+  }
+}

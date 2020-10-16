@@ -1,0 +1,343 @@
+@use "~@conversionxl/cxl-lumo-styles/scss/mq";
+@use "./mixins";
+
+// reset styles to match popup basic styles
+:host([theme~="cxl-vaadin-dialog-overlay-theme"]) {
+  [part="overlay"] {
+    padding: 0;
+  }
+
+  [part="content"] {
+    padding: 18px;
+  }
+}
+
+// size
+:host([theme~="nano"]) [part="overlay"] {
+  width: 10%;
+}
+
+:host([theme~="micro"]) [part="overlay"] {
+  width: 20%;
+}
+
+:host([theme~="tiny"]) [part="overlay"] {
+  width: 30%;
+}
+
+:host([theme~="small"]) [part="overlay"] {
+  width: 40%;
+}
+
+:host([theme~="medium"]) [part="overlay"] {
+  width: 60%;
+}
+
+:host([theme~="normal"]) [part="overlay"] {
+  width: 70%;
+}
+
+:host([theme~="large"]) [part="overlay"] {
+  width: 80%;
+}
+
+:host([theme~="x-large"]) [part="overlay"] {
+  width: 95%;
+}
+
+// Animations
+
+@keyframes cxl-overlay-dummy-animation {
+  0% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// none
+
+:host([theme~="animation-none"]) [part="backdrop"] {
+  animation-name: none;
+}
+
+:host([theme~="animation-none"][closing]) [part="backdrop"] {
+  animation-name: none;
+}
+
+:host([theme~="animation-none"][opening]),
+:host([theme~="animation-none"][closing]) {
+  animation-name: none;
+}
+
+:host([theme~="animation-none"][opening]) [part="overlay"] {
+  animation-name: none;
+}
+
+:host([theme~="animation-none"][closing]) [part="overlay"] {
+  animation-name: none;
+}
+
+// fade
+:host([theme~="animation-fade"]) [part="backdrop"] {
+  animation: calc(0.2s * var(--cxl-vaadin-dialog-animation-duration))
+    vaadin-dialog-backdrop-enter-fade both;
+  will-change: opacity;
+}
+
+@keyframes vaadin-dialog-backdrop-enter-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+:host([theme~="animation-fade"][closing]) [part="backdrop"] {
+  animation: calc(0.05s * var(--cxl-vaadin-dialog-animation-duration))
+    vaadin-dialog-backdrop-exit-fade both;
+}
+
+@keyframes vaadin-dialog-backdrop-exit-fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+:host([theme~="animation-fade"][opening]),
+:host([theme~="animation-fade"][closing]) {
+  animation: calc(0.25s * var(--cxl-vaadin-dialog-animation-duration)) cxl-overlay-dummy-animation;
+}
+
+:host([theme~="animation-fade"][opening]) [part="overlay"] {
+  animation: calc(0.12s * var(--cxl-vaadin-dialog-animation-duration))
+    calc(0.05s * var(--cxl-vaadin-dialog-animation-duration)) vaadin-dialog-enter-fade
+    cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@keyframes vaadin-dialog-enter-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+:host([theme~="animation-fade"][closing]) [part="overlay"] {
+  animation: calc(0.1s * var(--cxl-vaadin-dialog-animation-duration))
+    calc(0.03s * var(--cxl-vaadin-dialog-animation-duration)) vaadin-dialog-exit-fade
+    cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+}
+
+@keyframes vaadin-dialog-exit-fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+// animation-fadeAndSlide
+
+:host([theme~="animation-fadeAndSlide"]) [part="backdrop"] {
+  animation: calc(0.2s * var(--cxl-vaadin-dialog-animation-duration))
+    vaadin-dialog-backdrop-enter-fadeAndSlide both;
+  will-change: opacity;
+}
+
+@keyframes vaadin-dialog-backdrop-enter-fadeAndSlide {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+:host([theme~="animation-fadeAndSlide"][closing]) [part="backdrop"] {
+  animation: calc(0.05s * var(--cxl-vaadin-dialog-animation-duration))
+    vaadin-dialog-backdrop-exit-fadeAndSlide both;
+}
+
+@keyframes vaadin-dialog-backdrop-exit-fadeAndSlide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+:host([theme~="animation-fadeAndSlide"][opening]),
+:host([theme~="animation-fadeAndSlide"][closing]) {
+  animation: calc(0.25s * var(--cxl-vaadin-dialog-animation-duration)) cxl-overlay-dummy-animation;
+}
+
+:host([theme~="animation-fadeAndSlide"][opening]) [part="overlay"] {
+  animation: calc(0.12s * var(--cxl-vaadin-dialog-animation-duration))
+    calc(0.05s * var(--cxl-vaadin-dialog-animation-duration)) vaadin-dialog-enter-fadeAndSlide
+    cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@keyframes vaadin-dialog-enter-fadeAndSlide {
+  0% {
+    opacity: 0;
+    transform: var(--cxl-vaadin-dialog-animation-origin);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:host([theme~="animation-fadeAndSlide"][closing]) [part="overlay"] {
+  animation: calc(0.1s * var(--cxl-vaadin-dialog-animation-duration))
+    calc(0.03s * var(--cxl-vaadin-dialog-animation-duration)) vaadin-dialog-exit-fadeAndSlide
+    cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+}
+
+@keyframes vaadin-dialog-exit-fadeAndSlide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+// slide
+:host([theme~="animation-slide"]) [part="backdrop"] {
+  animation: calc(0.2s * var(--cxl-vaadin-dialog-animation-duration))
+    vaadin-dialog-backdrop-enter-slide both;
+  will-change: opacity;
+}
+
+@keyframes vaadin-dialog-backdrop-enter-slide {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+:host([theme~="animation-slide"][closing]) [part="backdrop"] {
+  animation: calc(0.05s * var(--cxl-vaadin-dialog-animation-duration))
+    vaadin-dialog-backdrop-exit-slide both;
+}
+
+@keyframes vaadin-dialog-backdrop-exit-slide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+:host([theme~="animation-slide"][opening]),
+:host([theme~="animation-slide"][closing]) {
+  animation: calc(0.25s * var(--cxl-vaadin-dialog-animation-duration)) cxl-overlay-dummy-animation;
+}
+
+:host([theme~="animation-slide"][opening]) [part="overlay"] {
+  animation: calc(0.12s * var(--cxl-vaadin-dialog-animation-duration))
+    calc(0.05s * var(--cxl-vaadin-dialog-animation-duration)) vaadin-dialog-enter-slide
+    cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+
+@keyframes vaadin-dialog-enter-slide {
+  0% {
+    opacity: 0;
+    transform: var(--cxl-vaadin-dialog-animation-origin);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:host([theme~="animation-slide"][closing]) [part="overlay"] {
+  animation: calc(0.1s * var(--cxl-vaadin-dialog-animation-duration))
+    calc(0.03s * var(--cxl-vaadin-dialog-animation-duration)) vaadin-dialog-exit-slide
+    cubic-bezier(0.55, 0.055, 0.675, 0.19) both;
+}
+
+@keyframes vaadin-dialog-exit-slide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+// animation origin for slide effect
+:host([theme~="animation-origin-top"]) {
+  --cxl-vaadin-dialog-animation-origin: translateY(-100vh);
+}
+
+:host([theme~="animation-origin-left-top"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(-100vh) translateY(-100vh);
+}
+
+:host([theme~="animation-origin-left"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(-100vh) translateY(0);
+}
+
+:host([theme~="animation-origin-bottom"]) {
+  --cxl-vaadin-dialog-animation-origin: translateY(100vh);
+}
+
+:host([theme~="animation-origin-right-top"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(100vh) translateY(-100vh);
+}
+
+:host([theme~="animation-origin-right"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(100vh) translateY(0);
+}
+
+:host([theme~="animation-origin-center-top"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(50vh) translateY(-100vh);
+}
+
+:host([theme~="animation-origin-left-center"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(-100vh) translateY(-50vh);
+}
+
+:host([theme~="animation-origin-center-center"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(50vh) translateY(-50vh);
+}
+
+:host([theme~="animation-origin-right-center"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(100vh) translateY(-50vh);
+}
+
+:host([theme~="animation-origin-left-bottom"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(-100vh) translateY(100vh);
+}
+
+:host([theme~="animation-origin-center-bottom"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(50vh) translateY(100vh);
+}
+
+:host([theme~="animation-origin-right-bottom"]) {
+  --cxl-vaadin-dialog-animation-origin: translateX(100vw) translateY(100%);
+}

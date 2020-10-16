@@ -15,15 +15,22 @@
     "@pika/plugin-build-web": "^0.8.1",
     "@pika/plugin-bundle-web": "^0.8.1",
     "@pika/plugin-standard-pkg": "^0.8.1",
+    "@polymer/polymer": "^3.4.1",
     "@vaadin/vaadin-accordion": "^1.0.1",
     "@vaadin/vaadin-button": "^2.2.1",
     "@vaadin/vaadin-context-menu": "^4.3.14",
+    "@vaadin/vaadin-dialog": "^2.4.5",
+    "@vaadin/vaadin-overlay": "^3.5.1",
     "@vaadin/vaadin-progress-bar": "^1.1.2",
     "@vaadin/vaadin-tabs": "^3.0.5",
     "@vaadin/vaadin-themable-mixin": "^1.5.2",
+    "confetti-js": "^0.0.18",
     "headroom.js": "^0.11.0",
+    "js-cookie": "^2.2.1",
     "lit-element": "^2.2.1",
-    "lit-html": "^1.1.2"
+    "lit-html": "^1.1.2",
+    "locutus": "^2.0.14",
+    "qs": "^6.9.4"
   },
   "@pika/pack": {
     "pipeline": [
