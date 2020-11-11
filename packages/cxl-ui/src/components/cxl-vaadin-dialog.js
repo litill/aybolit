@@ -622,12 +622,31 @@ export class CXLVaadinDialog extends DialogElement {
     this.$.overlay.addEventListener(
       'opened-changed',
       () => {
-        // Reset inline z-index, so popup settings z-index is applied.
-        // basically resets bringToFront(), which is applied to overlay, if !modeless
-        // which brings dialog with overlay in front of other (modeless).
-        this._attachedInstances().forEach(el => {
+        const attachedInstances = this._attachedInstances();
+        if (!attachedInstances) {
+          return;
+        }
+
+        /**
+         * Reset inline z-index, so popup settings z-index is applied.
+         * basically resets bringToFront(), which is applied to overlay, if !modeless
+         * which brings dialog with overlay in front of other (modeless).
+         */
+        attachedInstances.forEach(el => {
           el.style.removeProperty('z-index');
         });
+
+        /**
+         * Modeless dialog takes priority by default, doesn't care about z-index.
+         * So resetting pointer events based on z-index priority.
+         */
+        attachedInstances.forEach(el => {
+          // eslint-disable-next-line no-param-reassign
+          el.shadowRoot.querySelector('[part="overlay"]').style.pointerEvents = 'none';
+        });
+        attachedInstances[0].shadowRoot
+          .querySelector('[part="overlay"]')
+          .style.removeProperty('pointer-events');
       },
       { once: true }
     );
