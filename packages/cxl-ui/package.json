@@ -21,13 +21,12 @@
     "@vaadin/vaadin-progress-bar": "^1.1.2",
     "@vaadin/vaadin-tabs": "^3.0.5",
     "@vaadin/vaadin-themable-mixin": "^1.5.2",
+    "cross-env": "^7.0.2",
     "headroom.js": "^0.11.0",
+    "imports-loader": "^0.8.0",
+    "laravel-mix": "^6.0.10",
     "lit-element": "^2.2.1",
-    "lit-html": "^1.1.2",
-    "cross-env": "~7.0.2",
-    "laravel-mix": "^5.0.4",
-    "postcss-preset-env": "^6.7.0",
-    "imports-loader": "^0.8.0"
+    "lit-html": "^1.1.2"
   },
   "@pika/pack": {
     "pipeline": [
@@ -36,29 +35,16 @@
       ],
       [
         "@pika/plugin-build-web"
-      ],
-      [
-        "@pika/plugin-bundle-web",
-        {
-          "minify": {
-            "output": {
-              "comments": false
-            }
-          }
-        }
       ]
     ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "npm run prod",
-    "prod": "cross-env NODE_ENV=production ../../node_modules/webpack/bin/webpack.js --progress --hide-modules --config=../../node_modules/laravel-mix/setup/webpack.config.js",
-    "dev": "cross-env NODE_ENV=development ../../node_modules/webpack/bin/webpack.js --progress --hide-modules --config=../../node_modules/laravel-mix/setup/webpack.config.js"
-  },
-  "resolutions": {
-    "terser": "^4.6.11"
+    "dist": "pika build && npm run prod",
+    "prod": "npx mix --mix-config=./webpack.mix.js --production",
+    "dev": "npx mix --mix-config=./webpack.mix.js watch"
   },
   "devDependencies": {
-    "vue-template-compiler": "^2.6.11"
+    "postcss": "^8.2.4"
   }
 }

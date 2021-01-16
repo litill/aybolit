@@ -5,7 +5,7 @@
  * complexity of building out a Webpack configuration file. Use this file to
  * configure how your assets are handled in the build process.
  *
- * @link https://laravel.com/docs/5.6/mix
+ * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/installation.md
  *
  * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
  */
@@ -31,7 +31,7 @@ const mix = require('laravel-mix');
 const devPath = 'src';
 
 /*
- * Sets the path to the generated assets. By default, this is the `/dist/plugin/assets` folder
+ * Sets the path to the generated assets. By default, this is the `/pkg/dist-web` folder
  * in the plugin. If doing something custom, make sure to change this everywhere.
  */
 mix.setPublicPath('pkg/dist-web');
@@ -39,19 +39,25 @@ mix.setPublicPath('pkg/dist-web');
 /*
  * Set Laravel Mix options.
  *
- * @link https://laravel.com/docs/5.6/mix#postcss
- * @link https://laravel.com/docs/5.6/mix#url-processing
+ * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/url-rewriting.md#css-url-rewriting
+ * See: https://github.com/webpack-contrib/terser-webpack-plugin#options
  */
 mix.options({
-  // eslint-disable-next-line global-require
-  postCss: [require('postcss-preset-env')()],
-  processCssUrls: false
+  processCssUrls: false,
+  terser: {
+    terserOptions: {
+      output: {
+        comments: false,
+      },
+    },
+    extractComments: false,
+  }
 });
 
 /*
  * Builds sources maps for assets.
  *
- * @link https://laravel.com/docs/5.6/mix#css-source-maps
+ * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/api.md#sourcemapsgenerateforproduction-devtype-productiontype
  */
 mix.sourceMaps();
 
@@ -60,14 +66,14 @@ mix.sourceMaps();
  * you only want versioned assets in production, do a conditional check for
  * `mix.inProduction()`.
  *
- * @link https://laravel.com/docs/5.6/mix#versioning-and-cache-busting
+ * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/api.md#versionfiles
  */
 mix.version();
 
 /*
  * Compile JavaScript.
  *
- * @link https://laravel.com/docs/5.6/mix#working-with-scripts
+ * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/mixjs.md#basic-usage
  */
 
 mix.js(`${devPath}/index.js`, '').js(`${devPath}/index-vaadin-grid.js`, '');
@@ -75,7 +81,7 @@ mix.js(`${devPath}/index.js`, '').js(`${devPath}/index-vaadin-grid.js`, '');
 /*
  * Extract vendors etc.
  *
- * @link https://laravel-mix.com/docs/5.0/extract
+ * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/extract.md#L14
  */
 mix.extract();
 
@@ -83,8 +89,8 @@ mix.extract();
  * Add custom Webpack configuration.
  *
  *
- * @link https://laravel.com/docs/5.6/mix#custom-webpack-configuration
- * @link https://webpack.js.org/configuration/
+ * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/quick-webpack-configuration.md
+ * See: https://webpack.js.org/configuration/
  */
 mix.webpackConfig(() => {
   return {
