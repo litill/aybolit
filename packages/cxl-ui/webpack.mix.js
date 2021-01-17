@@ -47,10 +47,10 @@ mix.options({
   terser: {
     terserOptions: {
       output: {
-        comments: false,
-      },
+        comments: false
+      }
     },
-    extractComments: false,
+    extractComments: false
   }
 });
 
@@ -76,7 +76,10 @@ mix.version();
  * See: https://github.com/JeffreyWay/laravel-mix/blob/fe4c1383bd11d25862b557587c97bafd95594365/docs/mixjs.md#basic-usage
  */
 
-mix.js(`${devPath}/index.js`, '').js(`${devPath}/index-vaadin-grid.js`, '');
+mix
+  .js(`${devPath}/index.js`, '')
+  .js(`${devPath}/index-vaadin-grid.js`, '')
+  .js(`${devPath}/index-vaadin-text-field.js`, '');
 
 /*
  * Extract vendors etc.
