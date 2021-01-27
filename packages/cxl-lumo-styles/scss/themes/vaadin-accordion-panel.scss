@@ -142,3 +142,51 @@
     }
   }
 }
+
+/**
+ * Theme "cxl-jobs-listing".
+ */
+:host([theme~="cxl-jobs-listing"]) {
+  [part="toggle"] {
+    position: absolute;
+    right: var(--lumo-space-m);
+  }
+
+  [part="content"] {
+    padding: var(--lumo-space-m);
+  }
+
+  [part="summary"] {
+    --cxl-jobs-listing-border: solid 1px transparent;
+    position: relative;
+    padding: var(--lumo-space-m) var(--lumo-space-m);
+    border-top: var(--cxl-jobs-listing-border);
+    border-bottom: var(--cxl-jobs-listing-border);
+  }
+
+  [part="summary-content"] {
+    flex: 1 0 auto;
+  }
+}
+
+:host([theme~="cxl-jobs-listing"]:nth-child(odd):not([opened])) {
+  [part="summary"] {
+    background-color: transparent;
+  }
+
+  [part="content"] {
+    background-color: var(--lumo-base-color);
+  }
+}
+
+:host([theme~="cxl-jobs-listing"][opened]) {
+  background-color: transparent;
+  border: 1px solid var(--lumo-primary-color);
+  border-top: none;
+
+  [part="summary"] {
+    background-color: var(--lumo-primary-color-2pct);
+    border-top-color: var(--lumo-primary-color);
+    border-bottom-color: var(--lumo-primary-color-10pct);
+  }
+}

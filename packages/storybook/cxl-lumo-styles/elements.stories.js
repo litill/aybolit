@@ -5,7 +5,7 @@ import { html } from 'lit-html';
 
 export default {
   decorators: [withKnobs],
-  title: 'CXL Lumo Styles/Elements'
+  title: 'CXL Lumo Styles/Elements',
 };
 
 export const VaadinButton = () => {
@@ -26,6 +26,8 @@ export const VaadinButton = () => {
     <vaadin-button theme="tertiary">${label}</vaadin-button>
     <h6>Tertiary inline</h6>
     <vaadin-button theme="tertiary-inline">${label}</vaadin-button>
+    <h6>Outlined</h6>
+    <vaadin-button theme="outlined">${label}</vaadin-button>
     <h6>Upstream</h6>
     <p>
       Also see
