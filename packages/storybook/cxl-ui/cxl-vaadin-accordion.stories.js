@@ -1,6 +1,7 @@
 import { CXLVaadinAccordionThemeArchive } from './cxl-vaadin-accordion/cxl-accordion-card.story';
 import { CXLVaadinAccordionThemeFaq } from './cxl-vaadin-accordion/theme=cxl-faq.story';
 import { CXLVaadinAccordionThemeMinidegreeTrack } from './cxl-vaadin-accordion/theme=cxl-minidegree-track.story';
+import { CXLVaadinAccordionJobsListing } from './cxl-vaadin-accordion/theme=cxl-jobs-listing.story';
 
 export default {
   title: 'CXL UI/cxl-vaadin-accordion'
@@ -14,5 +15,6 @@ CXLVaadinAccordionThemeMinidegreeTrack.storyName = '[theme=cxl-minidegree-track]
 export {
   CXLVaadinAccordionThemeArchive,
   CXLVaadinAccordionThemeFaq,
-  CXLVaadinAccordionThemeMinidegreeTrack
+  CXLVaadinAccordionThemeMinidegreeTrack,
+  CXLVaadinAccordionJobsListing
 };
