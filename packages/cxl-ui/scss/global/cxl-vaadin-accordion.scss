@@ -139,23 +139,36 @@ cxl-vaadin-accordion {
    * Theme "cxl-jobs-listing".
    */
   &[theme~="cxl-jobs-listing"] {
-    [slot="summary"],
     [slot="summary"] > div {
+      --cxl-job-company-logo-size: calc(var(--lumo-icon-size-l) * 1.1);
+      position: relative;
       display: flex;
+      flex-flow: row wrap;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
+      // width: 100%;
+      padding-left: calc(var(--cxl-job-company-logo-size) + (var(--lumo-space-m) * 3));
     }
 
-    .gv-list-view-title > * {
-      flex: 1 1 0;
-      order: 2;
-      width: 0;
+    .gv-list-view-title {
+      > * {
+        flex: 1 1 0;
+        order: 2;
+        // width: 0;
+
+        margin-right: var(--lumo-space-m);
+      }
+
+      > :last-child {
+        margin-right: 0;
+      }
     }
 
-    .gv-no-results .gv-list-view-title > * {
-      flex: unset;
-      width: unset;
+    .gv-no-results .gv-list-view-title {
+      > * {
+        flex: unset;
+        width: unset;
+      }
     }
 
     .gv-list-view-content {
@@ -166,7 +179,9 @@ cxl-vaadin-accordion {
     }
 
     .cxl-job-company-logo {
-      --cxl-job-company-logo-size: calc(var(--lumo-icon-size-l) * 1.1);
+      // --cxl-job-company-logo-size: calc(var(--lumo-icon-size-l) * 1.1);
+      position: absolute;
+      left: 0;
       flex: 0 0 auto;
       order: 0;
       width: var(--cxl-job-company-logo-size);
@@ -184,6 +199,12 @@ cxl-vaadin-accordion {
 
     .cxl-job-company-name {
       order: 1;
+    }
+
+    .cxl-job-role,
+    .cxl-job-company-name {
+      flex-basis: 100%;
+      width: 100%;
     }
 
     .gv-list-view:nth-child(odd) vaadin-accordion-panel:not([opened]) {

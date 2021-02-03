@@ -124,9 +124,7 @@ export const CXLVaadinAccordionJobsListing = () => html`
           role="tab"
           orientation="horizontal"
           tabindex="-1"
-          ><a
-            >Search
-            <iron-icon icon="lumo:search"></iron-icon> </a
+          ><a>Search <iron-icon icon="lumo:search"></iron-icon> </a
         ></vaadin-tab>
       </vaadin-tabs>
       <script>
@@ -330,6 +328,148 @@ export const CXLVaadinAccordionJobsListing = () => html`
               class="gv-list-container gv-list-view gv-list-multiple-container gv-container gv-container-102"
             >
               <cxl-vaadin-accordion theme="cxl-jobs-listing" opened="0">
+                <div id="gv_list_8" class="gv-list-view">
+                  <vaadin-accordion-panel theme="cxl-jobs-listing reverse" tabindex="0"
+                    ><div slot="summary">
+                      <div class="gv-list-view-title">
+                        <h3 class="cxl-job-company-logo gv-field-1-26">
+                          <img
+                            src="https://jobs.cxl.co/index.php?gf-download=2021%2F01%2F368px-Google_2015_logo.svg.png&amp;form-id=1&amp;field-id=26&amp;hash=8e51092706ed0910ce209dce0c16f65b60a21c39cb9a32aaa225643757707fdf"
+                            width="250"
+                            alt="Company logo"
+                            class="gv-image gv-field-id-26"
+                          />
+                        </h3>
+                        <div id="gv-field-1-25" class="cxl-job-company-name gv-field-1-25">
+                          <p>
+                            <font size="4" color="black"><b>Google</b></font
+                            ><br /><font size="2" color="black">Content Marketer</font><br />
+                          </p>
+                        </div>
+                        <div id="gv-field-1-41" class="cxl-job-location gv-field-1-41">
+                          <p>
+                            <small><font color="gray">Full-time remote</font></small>
+                          </p>
+                        </div>
+                        <div id="gv-field-1-41" class="cxl-job-location gv-field-1-41">
+                          <p align="left">
+                            <small><font color="gray">Glasgow, United Kingdom</font></small>
+                          </p>
+                        </div>
+                        <div id="gv-field-1-41" class="cxl-job-location gv-field-1-41">
+                          <p align="center"><font color="#AAAAAA">posted 3 weeks ago</font></p>
+                        </div>
+                        <div
+                          id="gv-field-1-custom"
+                          class="cxl-apply-for-job-container gv-field-1-custom"
+                        >
+                          <p align="right">
+                            <vaadin-button
+                              type="submit"
+                              theme="primary"
+                              onclick="document.querySelector('form[data-viewid=&quot;102&quot;]').submit()"
+                              style=""
+                              tabindex="0"
+                              role="button"
+                            >
+                              <iron-icon slot="suffix" icon="lumo:angle-right"></iron-icon>Apply
+                              now</vaadin-button
+                            >
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- slot="summary" -->
+                    <div class="gv-grid gv-list-view-content">
+                      <div class="gv-grid-col-2-3 gv-list-view-content-description">
+                        <div id="gv-field-1-11" class="cxl-job-description gv-field-1-11">
+                          <p>
+                            Pressable is a leading provider of managed WordPress hosting. We're
+                            looking for a hardworking developer to help us build the world's best
+                            WordPress hosting service.
+                          </p>
+                          <p>
+                            As a software engineer with Pressable, you will provide a phenomenal
+                            user experience, build advanced tools and integrations, and solve
+                            difficult problems with creative solutions as we grow and deliver new
+                            capabilities to our customers!
+                          </p>
+                          <p>
+                            <strong
+                              >SOME OF THE PROJECTS YOU'LL BE WORKING ON AS A MEMBER OF OUR
+                              TEAM</strong
+                            >
+                          </p>
+                          <ul>
+                            <li>
+                              A new frontend control panel to deliver a modern and polished user
+                              experience
+                            </li>
+                            <li>
+                              A new API that will enable our customers to interact with our platform
+                              in ways they never have before
+                            </li>
+                            <li>
+                              Data analytics, reporting, and visualization for both customers and
+                              internal team collaboration
+                            </li>
+                            <li>
+                              Integrations with third-party tools including GitHub and WordPress
+                            </li>
+                            <li>
+                              Collaboration with other teams including Customer Success, Marketing,
+                              and Sales to automate and improve the customer experience
+                            </li>
+                            <li>
+                              Tighter integration with our customer WordPress sites with advanced
+                              tooling and abilities from our control panel
+                            </li>
+                            <li>
+                              Daily upkeep, maintenance, monitoring of Pressable's control panel and
+                              systems
+                            </li>
+                            <li>
+                              A new event system to enable notifications, webhooks, and websocket
+                              support with ActionCable
+                            </li>
+                          </ul>
+                          <p><strong>TOOLS AND FRAMEWORKS WE USE</strong></p>
+                          <ul>
+                            <li>Ruby 2.6.6 and Ruby on Rails 6</li>
+                            <li>MySQL/MariaDB</li>
+                            <li>Vue.js and Typescript</li>
+                            <li>Docker and Docker Compose</li>
+                            <li>Elastic Stack for logging and metrics</li>
+                            <li>PHP and WordPress</li>
+                            <li>Git / GitLab / GitHub</li>
+                            <li>Sass / SCSS</li>
+                          </ul>
+                        </div>
+                        <div
+                          id="gv-field-1-custom"
+                          class="cxl-apply-for-job-container gv-field-1-custom"
+                        >
+                          <p>
+                            <a class="button cxl-apply-for-job" href="https://grnh.se/b1e1dcd11us"
+                              ><br />
+                              Apply now<br />
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="gv-grid gv-list-view-footer">
+                      <div class="gv-grid-col-1-2 gv-left"></div>
+                      <div class="gv-grid-col-1-2 gv-right">
+                        <div id="gv-field-1-52" class="gv-field-1-52">
+                          <span class="gv-field-label">Expires at</span>2021-02-20 12:21:44
+                        </div>
+                      </div>
+                    </div>
+                  </vaadin-accordion-panel>
+                </div>
+
                 <div id="gv_list_8" class="gv-list-view">
                   <vaadin-accordion-panel theme="cxl-jobs-listing reverse" tabindex="0">
                     <div slot="summary">
