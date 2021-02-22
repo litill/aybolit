@@ -229,10 +229,6 @@ cxl-vaadin-accordion {
     }
 
     cxl-accordion-card[theme~="light"] {
-      // &[opened] {
-      //   border-bottom: 1px solid var(--lumo-primary-color);
-      // }
-
       &:hover {
         border-bottom: 1px solid var(--lumo-primary-color);
       }
@@ -253,6 +249,7 @@ cxl-vaadin-accordion {
     }
 
     cxl-accordion-card[opened] {
+      border-bottom: 1px solid var(--lumo-primary-color);
       .entry-title {
         overflow: visible;
       }
