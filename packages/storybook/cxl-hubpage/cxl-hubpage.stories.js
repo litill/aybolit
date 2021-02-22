@@ -1,6 +1,9 @@
 import { html } from 'lit-html';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
+import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
+import RenderHubs from './cxl-hubpage-render-hubs';
+import RenderPlaybooks from './cxl-hubpage-render-playbooks';
 
 export default {
   decorators: [withKnobs],
@@ -16,11 +19,14 @@ export const CXLDHubPage = () => {
       .widget.has-background {
         background-color: var(--lumo-shade-5pct);
       }
+      .plural .entry-title {
+        margin: 0;
+      }
     </style>
 
     <cxl-app-layout
       id="container"
-      layout="2c-l"
+      layout="2c-r"
       scroll="${hasPanelsScroll ? 'panels' : 'document'}"
     >
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
@@ -34,14 +40,12 @@ export const CXLDHubPage = () => {
       </section>
 
       <article class="entry">
-        <header class="entry-header">
-          <label>Page</label>
-          <h1 class="entry-title">Title: 2-column, content left</h1>
-          <p>Lorem ipsum....</p>
-        </header>
-        <div class="entry-content">
-          <h2>Headline</h2>
-          <p>Lorem ipsum....</p>
+        <div class="entry-content"></div>
+          <cxl-vaadin-accordion
+            id="cxl-vaadin-accordion-26107"
+            class="archive archive-certificate plural"
+            theme="cxl-hub-cards"
+          >${RenderHubs()}${RenderPlaybooks()}</cxl-vaadin-accordion>
         </div>
       </article>
     </cxl-app-layout>
