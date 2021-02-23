@@ -1,3 +1,4 @@
+import '@appnest/masonry-layout';
 import { html } from 'lit-html';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
@@ -15,15 +16,6 @@ export const CXLDHubPage = () => {
   const hasWidgetBackground = boolean('Has widget background?', false);
 
   return html`
-    <style>
-      .widget.has-background {
-        background-color: var(--lumo-shade-5pct);
-      }
-      .plural .entry-title {
-        margin: 0;
-      }
-    </style>
-
     <cxl-app-layout
       id="container"
       layout="2c-r"
@@ -45,7 +37,9 @@ export const CXLDHubPage = () => {
             id="cxl-vaadin-accordion-26107"
             class="archive archive-certificate plural"
             theme="cxl-hub-cards"
-          >${RenderHubs()}${RenderPlaybooks()}</cxl-vaadin-accordion>
+          >
+            <masonry-layout cols="auto" maxcolwidth="768" gap="16">${RenderHubs()}${RenderPlaybooks()}</masonry-layout>
+          </cxl-vaadin-accordion>
         </div>
       </article>
     </cxl-app-layout>
