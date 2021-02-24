@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import hubsData from './cxl-hubpage.hubs.data.json';
+import hubsData from '../data/cxl-hubpage.hubs.data.json';
 import '@conversionxl/cxl-ui/src/components/cxl-accordion-card.js';
 
 const RenderHubs = () =>
