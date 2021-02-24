@@ -4,6 +4,7 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-breadcrumbs.js';
+import '@conversionxl/cxl-ui/src/components/cxl-masonry-layout.js';
 import RenderHubs from './partials/cxl-hubpage-render-hubs';
 import RenderPlaybooks from './partials/cxl-hubpage-render-playbooks';
 import RenderHubsSidebar from './partials/cxl-hubpage-render-sidebar';
@@ -52,12 +53,14 @@ export const CXLDHubPage = () => {
           <h2 class="cxl-hub-title">Write a blog.</h2>
         </header>
         <cxl-vaadin-accordion
-          id="cxl-vaadin-accordion-26107"
+          with-masonry
+          id="cxl-hubpage-hubs-and-playbooks"
           class="archive archive-certificate plural"
           theme="cxl-hub-cards"
-        >
-          <masonry-layout cols="auto" maxcolwidth="768" gap="16">${RenderHubs()}${RenderPlaybooks()}</masonry-layout>
-        </cxl-vaadin-accordion>
+        ><cxl-masonry-layout cols="auto" maxcolwidth="768" gap="16">
+            ${RenderHubs()}
+            ${RenderPlaybooks()}
+          </cxl-masonry-layout></cxl-vaadin-accordion>
       </article>
     </cxl-app-layout>
   `;
