@@ -1,10 +1,13 @@
-import '@appnest/masonry-layout';
+// import '@appnest/masonry-layout'; // just an indicator: we might use it here later
 import { html } from 'lit-html';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import '@conversionxl/cxl-ui/src/components/cxl-app-layout.js';
+import '@conversionxl/cxl-ui/src/components/cxl-marketing-nav.js';
+import { CXLMarketingNav } from '../cxl-ui/cxl-marketing-nav.stories';
+import { CXLFooterNav } from '../cxl-ui/footer-nav.stories';
 import '@conversionxl/cxl-ui/src/components/cxl-vaadin-accordion.js';
 import '@conversionxl/cxl-ui/src/components/cxl-playbook-breadcrumbs.js';
-import '@conversionxl/cxl-ui/src/components/cxl-masonry-layout.js';
+// import '@conversionxl/cxl-ui/src/components/cxl-masonry-layout.js'; // just an indicator: we might use it here later
 import RenderHubs from './partials/cxl-hubpage-render-hubs';
 import RenderPlaybooks from './partials/cxl-hubpage-render-playbooks';
 import RenderHubsSidebar from './partials/cxl-hubpage-render-sidebar';
@@ -42,6 +45,9 @@ export const CXLDHubPage = () => {
       layout="2c-r"
       scroll="${hasPanelsScroll ? 'panels' : 'document'}"
     >
+
+      ${CXLMarketingNav()}
+
       <section class="widget ${hasWidgetBackground ? 'has-background' : ''}" slot="sidebar">
         <h2 class="cxl-hub-sidebar-header">Navigation</h2>
         ${RenderHubsSidebar()}
@@ -53,15 +59,14 @@ export const CXLDHubPage = () => {
           <h2 class="cxl-hub-title">Write a blog.</h2>
         </header>
         <cxl-vaadin-accordion
-          with-masonry
           id="cxl-hubpage-hubs-and-playbooks"
           class="archive archive-certificate plural"
           theme="cxl-hub-cards"
-        ><cxl-masonry-layout cols="auto" maxcolwidth="768" gap="16">
-            ${RenderHubs()}
-            ${RenderPlaybooks()}
-          </cxl-masonry-layout></cxl-vaadin-accordion>
+        >${RenderHubs()}${RenderPlaybooks()}</cxl-vaadin-accordion>
       </article>
+
+      ${CXLFooterNav()}
+
     </cxl-app-layout>
   `;
 };
