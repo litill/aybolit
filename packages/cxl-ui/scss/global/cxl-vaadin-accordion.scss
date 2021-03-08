@@ -33,12 +33,29 @@ cxl-vaadin-accordion {
       }
     }
 
+    .thumbnail {
+      --cxl-thumbnail-size: 4rem; // == 64px
+    }
+
     .entry-title {
       flex: 1;
       height: calc(var(--lumo-line-height-xs) * 4em);
       overflow: hidden;
       font-size: var(--lumo-font-size-xl);
       word-break: break-word;
+      .entry-tag {
+        font-size: var(--lumo-font-size-m);
+        margin-bottom: var(--lumo-space-m);
+        color: var(--lumo-primary-text-color); // make it red for the default version (light) -- comment to know what/Greg
+      }
+    }
+
+    cxl-accordion-card[theme~="dark"] {
+      .entry-title {
+        .entry-tag {
+          color: var(--lumo-secondary-text-color);
+        }
+      }
     }
 
     cxl-accordion-card[opened] {
@@ -58,7 +75,6 @@ cxl-vaadin-accordion {
 
     .entry-title {
       @include mixins.entry-title-with-progress-icons();
-
       margin: 0;
     }
 
@@ -122,6 +138,13 @@ cxl-vaadin-accordion {
       }
     }
 
+    .entry-title {
+      .entry-tag {
+        margin-bottom: var(--lumo-space-m);
+        font-size: var(--lumo-font-size-m);
+      }
+    }
+
     .entry-summary {
       @media #{mq.$small} {
         // @todo Eliminate magic number.
@@ -130,7 +153,8 @@ cxl-vaadin-accordion {
     }
 
     .thumbnail {
-      --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 2);
+      // --cxl-thumbnail-size: calc(var(--lumo-icon-size-l) * 2);
+      --cxl-thumbnail-size: 4rem; // == 64px
       background-color: var(--lumo-contrast-70pct);
     }
   }
@@ -195,21 +219,23 @@ cxl-vaadin-accordion {
 
       a {
         display: block;
-        margin-top: var(--lumo-space-m);
+        // margin-top: var(--lumo-space-m);
+        margin-top: 0;
         margin-bottom: var(--lumo-space-m);
         font-size: var(--lumo-font-size-xl);
         line-height: var(--lumo-line-height-s);
         color: inherit;
       }
 
-      .super-title {
+      .entry-tag {
         font-size: var(--lumo-font-size-m);
+        margin-bottom: var(--lumo-space-m);
         color: var(--lumo-secondary-text-color);
       }
     }
 
     .thumbnail {
-      --cxl-thumbnail-size: 64px;
+      --cxl-thumbnail-size: 4rem; // == 64px
       background-color: var(--lumo-contrast-70pct);
     }
 
@@ -262,7 +288,7 @@ cxl-vaadin-accordion {
       // }
 
       .entry-title {
-        .super-title {
+        .entry-tag {
           color: var(--lumo-primary-text-color);
         }
       }
