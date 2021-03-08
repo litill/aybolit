@@ -12,7 +12,7 @@ const RenderPlaybooks = () =>
     >
       <header class="entry-header" slot="summary">
         <h3 class="entry-title no-anchor" itemprop="headline">
-          <div class="super-title">Playbook</div>
+          <div class="entry-tag">Playbook</div>
           <a href="${el.conversionxl_certificate_sales_page}" rel="bookmark" itemprop="url"
             >${el.title.raw}</a
           >
